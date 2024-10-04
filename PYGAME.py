@@ -36,14 +36,17 @@ while running:
         if events.type == pygame.QUIT:
             running = False
         if events.type == pygame.KEYDOWN:
+            print("keydowns")
             if events.key == pygame.K_LEFT:
                 camera_offset_x -= dt
+                print("coff -=")
             if events.key == pygame.K_RIGHT:
+                print("coff +=")
                 camera_offset_x += dt
 
-    #screen.fill("purple")
+    screen.fill("white")
 
-    pygame.draw.circle(screen, "red", player_pos, 5)
+    pygame.draw.circle(screen, "red", player_pos, 10)
     
     
     #player_circle = player_circle.move(camera_offset_x, 0)
@@ -51,6 +54,7 @@ while running:
     #player_circle_pos = pygame.draw.circle(screen, "red", camera_offset_x, 0) 
     #player_circle_pos = C1.move(camera_offset_x, 0)
     #pygame.draw.rect(screen, "red", player_pos, player_circle_pos)
+    
     
 
     keys = pygame.key.get_pressed()  
@@ -63,8 +67,8 @@ while running:
     if keys[pygame.K_d]:
         player_pos.x += 300 * dt
 
-    camera_offset_x = screen.get_width() // 2 - player_x - screen.get_height() // 2
-    camera_offset_y = screen.get_width() // 2 - player_y - screen.get_height() // 2
+    camera_offset_x = screen.get_width() // 2 - player_x - 10 // 2
+    camera_offset_y = screen.get_width() // 2 - player_y - 10 // 2
 
     pygame.display.flip()
 
